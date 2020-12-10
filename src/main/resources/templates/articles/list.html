@@ -33,7 +33,6 @@
     <script>
         $('#home').click(e => { location.href="/"})
         $.getJSON('/articles', d => {
-            
             if(d.count != 0 ){
                 const list = d.list
                 let tr = ''
@@ -51,9 +50,14 @@
                 $('.title').each(function(i) {
                     $(this).click(e => {
                         e.preventDefault()
-                        alert(`${i} 번 ID:  ${this.id}`)
+                        alert(`${i} 번의 ID:  ${this.id}`)
                         localStorage.setItem('artNum', `${this.id}`)
-                        location.href = '/move/articles/detail'
+                        $.getJSON(`/articles/${this.id}/count`, d => {
+                            if(d.message === 'SUCCESS'){
+                                location.href = '/move/articles/detail'
+                            }
+                        })
+                        
                     })
                 })
             }else{
@@ -64,6 +68,7 @@
                 $(".regDate").text('조회결과 없음')
                 $(".count").text('조회결과 없음')
             }
+            
         })
        
    </script>

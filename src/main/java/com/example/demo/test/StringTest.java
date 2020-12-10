@@ -10,7 +10,6 @@ public class StringTest {
         int o = Integer.parseInt(one);
         int t = Integer.parseInt(two);
 
-
         String sum = String.valueOf(o + t);
         // System.out.println("1 + 2 = "+sum);
 
@@ -20,5 +19,6 @@ public class StringTest {
         //System.out.println(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()));
         String url = "https://music.bugs.co.kr/recomreview?&order=listorder&page=2";
         System.out.println("URL : "+url);
+        
     }
 }
